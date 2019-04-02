@@ -1,0 +1,420 @@
+<!-- author刘安琪 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAAS系统--航空公司端</title>
+    <!--引入BS.JS-->{include file="index/UseBsJs"}
+    <link rel="stylesheet" href="__AIRLINE__/css/index/index.css">
+</head>
+
+<body>
+
+    <style>
+        .table>tbody>tr>td {
+            border: 0px solid transparent;
+        }
+        
+        .leg-details {
+            border: 2px solid #ccc;
+            padding: 5px 30px;
+        }
+        
+        .main-table {
+            font-size: 16px;
+        }
+        
+        .main-table>tbody>tr>td,
+        .main-table>thead>tr>th {
+            height: 45px;
+            line-height: 45px;
+        }
+    </style>
+
+    <!-- 网站头部 -->
+    {include file="index/IndexHeader"}
+
+    <!-- 用户注册和登录 -->
+    {include file="index/IndexUserAction"}
+
+    <div class="container">
+
+        <h3 class="text-left" style="display: inline-block;">航班任务</h3>
+        <a href="__MODULE_AIRLINE__/Flight_Task/index" class="btn btn-primary pull-right" style="margin-top:20px; margin-left:20px;">刷新</a>
+        <a href="__MODULE_AIRLINE__/Flight_Task/toAddFlightTask" class="btn btn-warning pull-right" style="margin-top:20px;margin-left:20px;">删除</a>
+        <a href="__MODULE_AIRLINE__/Flight_Task/toAddFlightTask" class="btn btn-success pull-right" style="margin-top:20px;">新增</a>
+        <hr>
+
+        <div class="leg-details">
+            <table class="table main-table">
+                <thead>
+                    <tr>
+                        <th>LEG: 001</th>
+                        <th> </th>
+                        <th class="text-right">
+                            <a href="#">导出&nbsp;&nbsp;</a>
+                            <a href="#">编辑&nbsp;&nbsp;</a>
+                            <a href="#">删除&nbsp;&nbsp;</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FLTNBR:N999DF</td>
+                        <td>TYPE:<b>FERRY</b></td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>ORIG:ORIG</td>
+                        <td>DRPT TIME 05030Z</td>
+                        <td>DEPT DATE ARR 02</td>
+                    </tr>
+                    <tr>
+                        <td>DEST:CYVR</td>
+                        <td>ARR TIME:1600Z</td>
+                        <td>ARR TIME:APR 02</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <button class="btn btn-success pull-right" data-toggle="collapse" data-target="#content">展开/收起</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="collapse" id="content">
+                <p style="font-size: 18px;font-weight: bolder;">服务安排</p>
+                <hr>
+                <div class="pull-left">
+                    <h5 style="margin-top:35px"><b>CREW LIST : 05crew</b></h5>
+                </div>
+                <button class=" btn pull-right">新增</button>
+                <table class="table table-striped table-bordered ">
+                    <thead>
+                        <th>OCCUPATION</th>
+                        <th>PPN</th>
+                        <th>DOE</th>
+                        <th>POB</th>
+                        <th>NAME</th>
+                        <th>GENDER</th>
+                        <th>COUNTRY</th>
+                        <th>DOB</th>
+                        <th>操作</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CAPT</td>
+                            <td>E47401841</td>
+                            <td>2025/04/03</td>
+                            <td>Beijing</td>
+                            <td>JIANQUAN</td>
+                            <td>Male</td>
+                            <td>CHINA</td>
+                            <td>1973/12/04</td>
+                            <td><a href="#">编辑 </a><a href="#">删除 </a></td>
+                        </tr>
+                        <tr>
+                            <td>CAPT</td>
+                            <td>E47401841</td>
+                            <td>2025/04/03</td>
+                            <td>Beijing</td>
+                            <td>JIANQUAN</td>
+                            <td>Male</td>
+                            <td>CHINA</td>
+                            <td>1973/12/04</td>
+                            <td><a href="#">编辑 </a><a href="#">删除 </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pull-left">
+                    <h5 style="margin-top:35px"><b>PAX LIST : 03Pax</b></h5>
+                </div>
+                <button class=" btn pull-right">新增</button>
+                <table class="table table-striped table-bordered ">
+                    <thead>
+                        <th>NAME</th>
+                        <th>PPN</th>
+                        <th>DOE</th>
+                        <th>GENDER</th>
+                        <th>POB</th>
+                        <th>COUNTRY</th>
+                        <th>操作</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>JIANQUAN</td>
+                            <td>E47401841</td>
+                            <td>2025/04/03</td>
+                            <td>Male</td>
+                            <td>2025/04/03</td>
+                            <td>CHINA</td>
+                            <td><a href="#">编辑 </a><a href="#">删除 </a></td>
+                        </tr>
+                        <tr>
+                            <td>JIANQUAN</td>
+                            <td>E47401841</td>
+                            <td>2025/04/03</td>
+                            <td>Male</td>
+                            <td>2025/04/03</td>
+                            <td>CHINA</td>
+                            <td><a href="#">编辑 </a><a href="#">删除 </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pull-left">
+                    <h5 style="margin-top:35px"><b>PERMITS</b></h5>
+                </div>
+                <button class=" btn pull-right">新增</button>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th>LEG</th>
+                        <th>NATION</th>
+                        <th>TYPE</th>
+                        <th>PERMIT NUMBER</th>
+                        <th>STATUS</th>
+                        <th>操作</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>S KOREA</td>
+                            <td>OVF</td>
+                            <td>AAISD-2940</td>
+                            <td style="color:aquamarine">APPROVED</td>
+                            <td>
+                                <a href="#">编辑 </a>
+                                <a href="#">删除 </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pull-left">
+                    <h5 style="margin-top:35px"><b>FBO /HANDLERS</b></h5>
+                </div>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th>LEG</th>
+                        <th>AIRPORT</th>
+                        <th>HANDER NAME</th>
+                        <th>CONTACT INFORMATION</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>ICAO</td>
+                            <td>NAME:</td>
+                            <td>SIGNATURE FLIGHT SUPPORT</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>ADDRESS:</td>
+                            <td>5360 Airport Rd South，Richmond (Vancouver), BC V7B 1B4</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>TEL:</td>
+                            <td>+1 604 270 2222</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>FAX:</td>
+                            <td>+1 604 270 2222</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>VHF:</td>
+                            <td>122.85</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>STATUS:</td>
+                            <td style="color:coral">PENDING</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td class="text-right"><a href="#">编辑 </a>
+                                <a href="#">删除 </a></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pull-left">
+                    <h5 style="margin-top:35px"><b>FUELERS</b></h5>
+                </div>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th>LEG</th>
+                        <th>AIRPORT</th>
+                        <th>FUEL RELEASE</th>
+                        <th>STATUS</th>
+                        <th>操作</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>ICAO</td>
+                            <td>15字符</td>
+                            <td style="color:firebrick">REJECTED</td>
+                            <td>
+                                <a href="#">添加附件（油单） </a>
+                                <a href="#">编辑 </a>
+                                <a href="#">删除 </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pull-left">
+                    <h5 style="margin-top:35px"><b>HOTELS</b></h5>
+                </div>
+                <button class=" btn pull-right">新增</button>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th>LEG</th>
+                        <th>AIRPORT</th>
+                        <th>HOTEL</th>
+                        <th>ADDRESS</th>
+                        <th>STATUS</th>
+                        <th>操作</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>ICAO</td>
+                            <td>30字符</td>
+                            <td>50字符</td>
+                            <td style="color:coral">AMENDED AND PENDING</td>
+                            <td>
+                                <a href="#">编辑 </a>
+                                <a href="#">删除 </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pull-left">
+                    <h5 style="margin-top:35px"><b>CREW TRANSPORTATION</b></h5>
+
+                </div>
+                <button class=" btn pull-right">新增</button>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th>LEG</th>
+                        <th>AIRPORT</th>
+                        <th>TYPE</th>
+                        <th>CONTACT </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>ICAO</td>
+                            <td>VIHICLE:</td>
+                            <td>15字符</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>DRIVER:</td>
+                            <td>20字符</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>TEL:</td>
+                            <td>12字符</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>PICK-UP TIME（UTC）:</td>
+                            <td>UTC时间</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>LOCAL TIME：</td>
+                            <td>当地时间</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>PICK -UP POINT：</td>
+                            <td>20字符</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td>STATUS：</td>
+                            <td style="color:firebrick">REJECTED</td>
+                        </tr>
+                        <tr>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td class="text-right"><a href="#">编辑 </a>
+                                <a href="#">删除 </a></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pull-left">
+                    <h5 style="margin-top:35px"><b>CREATING</b></h5>
+                </div>
+                <button class=" btn pull-right">新增</button>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th>LEG</th>
+                        <th>AIRPORT</th>
+                        <th>SUPPLIER</th>
+                        <th>STATUS</th>
+                        <th>操作</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>ICAO</td>
+                            <td>30字符</td>
+                            <td style="color:aquamarine">APPROVED</td>
+                            <td>
+                                <a href="#">上传MENU</a>
+                                <a href="#">上传明细</a>
+                                <a href="#">编辑 </a>
+                                <a href="#">删除 </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pull-left">
+                    <h5 style="margin-top:35px"><b>ADDITIONAL INFO</b></h5>
+                </div>
+                <button class=" btn pull-right">新增</button>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th>NAME</th>
+                        <th>CONTENT</th>
+                        <th>操作</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>627 is a good boy!</td>
+                            <td>
+                                <a href="#">编辑 </a>
+                                <a href="#">删除 </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="#">返回上一级</a>
+    </div>
+</body>

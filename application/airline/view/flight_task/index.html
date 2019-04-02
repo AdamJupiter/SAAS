@@ -1,0 +1,144 @@
+<!-- author 罗佳 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAAS系统--航空公司端</title>
+    <!--引入BS.JS-->{include file="index/UseBsJs"}
+    <link rel="stylesheet" href="__AIRLINE__/css/index/index.css">
+
+</head>
+
+<body>
+    <style>
+        input[type="text"],
+        input[type="date"] {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+        
+        table {
+            margin: 0px auto;
+        }
+        
+        td,
+        th {
+            height: 50px;
+            text-align: center;
+        }
+        
+        .table {
+            border: 2px solid #999;
+            margin-bottom: 40px;
+        }
+        
+        .text-bolder {
+            font-weight: bolder;
+        }
+        
+        .text-big {
+            font-size: 1.05pc;
+        }
+        
+        .bg-gray {
+            background-color: #eee;
+        }
+    </style>
+    <!-- 网站头部 -->
+    {include file="index/IndexHeader"}
+
+    <!-- 用户注册和登录 -->
+    {include file="index/IndexUserAction"}
+
+    <div class="container">
+        <h3 class="text-left" style="display: inline-block;">航班任务</h3>
+        <a href="__MODULE_AIRLINE__/Flight_Task/index" class="btn btn-primary pull-right" style="margin-top:20px; margin-left:30px;">刷新</a>
+        <a href="__MODULE_AIRLINE__/Flight_Task/toAddFlightTask" class="btn btn-success pull-right" style="margin-top:20px;">新增</a>
+        <hr>
+
+        <div class="search-box">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>区间:</td>
+                        <td>
+                            <a href="#" class="btn btn-default">今天</a>
+                            <a href="#" class="btn btn-default">一周内</a>
+                            <a href="#" class="btn btn-default">一个月内</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>航班号：</td>
+                        <td><input type="text" placeholder="请输入航班号" name="航班号"></td>
+                    </tr>
+                    <tr>
+                        <td>起止时间:</td>
+                        <td>
+                            <input type="date" placeholder="开始时间" name="开始时间"> ~
+                            <input type="date" placeholder="结束时间" name="结束时间">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <a href="#" class="btn btn-info" style="margin-left:140px;">查询</a>
+                            <a href="#" class="btn btn-default" style="margin-left:20px;">清除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+
+        <div>
+            <table style="width:100%" class="table">
+                <tr class="bg-gray text-big">
+                    <td colspan="8" class="text-bolder">
+                        <span>TRIP:001</span>
+                        <span style="margin-left:20px;">航班号：NZ4908</span>
+                        <span style="margin-left:20px;">起止时间：2018/08/09 - 2018/08/15</span>
+                        <a href="__MODULE_AIRLINE__/Flight_Task/flightTaskDetails" style="margin-right:40px;" class="pull-right">查看详情</a>
+                    </td>
+                </tr>
+                <tr class="bg-gray text-big">
+                    <th>LEG</th>
+                    <th>FLTNBR</th>
+                    <th>ORIG</th>
+                    <th>DEPT TIME</th>
+                    <th>DEPT DATE</th>
+                    <th>DEST</th>
+                    <th>ARR TIME</th>
+                    <th>ARR DATE</th>
+                </tr>
+                <tr>
+                    <td>001</td>
+                    <td>N99DF</td>
+                    <td>ZSPD</td>
+                    <td>0530Z</td>
+                    <td>APR 02</td>
+                    <td>CYVR</td>
+                    <td>1600Z</td>
+                    <td>APR 02</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>N99DF</td>
+                    <td>ZSPD</td>
+                    <td>0530Z</td>
+                    <td>APR 02</td>
+                    <td>CYVR</td>
+                    <td>1600Z</td>
+                    <td>APR 02</td>
+                </tr>
+            </table>
+
+
+        </div>
+
+    </div>
+</body>

@@ -1,0 +1,172 @@
+<!--author 罗佳 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAAS系统:航空公司端</title>
+    <!--引入BS.JS-->{include file="index/UseBsJs"}
+
+</head>
+
+<body>
+
+    <style>
+        .table {
+            width: 50%;
+            font-size: 16px;
+            font-weight: bolder;
+            margin-left: 350px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 4px;
+        }
+        
+        .table tr td {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        
+        .table tr {
+            border: 0px solid transparent;
+        }
+        
+        .table>tbody>tr>td {
+            border: white 0px solid;
+        }
+        
+        input[type="text"] {
+            margin-top: -6px;
+            width: 350px;
+        }
+        
+        .fileinput-button {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+        
+        .fileinput-button input {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            opacity: 0;
+            -ms-filter: 'alpha(opacity=0)';
+            font-size: 200px;
+        }
+    </style>
+    <!-- 网站头部 -->
+    {include file="index/IndexHeader"}
+    <!-- 用户注册和登录-->
+    {include file="index/IndexUserAction"}
+
+    <div class="container">
+        <h3 class="text-left" style="display: inline-block;">公司信息</h3>
+        <a href="__MODULE_AIRLINE__/Company/index" class="btn btn-primary pull-right" style="margin-top:20px; margin-left:30px;">刷新</a>
+        <a href="#" id="edit" class="btn btn-success pull-right" style="margin-top:20px;">编辑</a>
+        <hr>
+        <form enctype="multipart/form-data" id="form-change-company-logo" action="__MODULE_AIRLINE__/Company/updateCompanyLogo" method="post">
+            <div class="text-center">
+                <img class="logo" src="__AIRLINE__/images/companyLogo/{$companyInfo.company_logo}" alt="logo">
+                <p style="margin-top:6px;">
+                    <span class="btn btn-success btn-small fileinput-button">
+                                <span>点击修改</span>
+                    <input id="change-image" name="logo" type="file" accept="image/*">
+                    </span>
+                </p>
+            </div>
+        </form>
+
+        <form action="__MODULE_AIRLINE__/Company/updateCompanyInfo" method="post">
+            <table class="table">
+                <tr>
+                    <td>公司名称:</td>
+                    <td>
+                        <span class="edit-hide">{$companyInfo.company_name}</span>
+                        <input type="text" name="公司名称" class="form-control edit-show" value="{$companyInfo.company_name}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>公司地址:</td>
+                    <td>
+                        <span class="edit-hide">{$companyInfo.company_address}</span>
+                        <input type="text" name="公司地址" class="form-control edit-show" value="{$companyInfo.company_address}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>运行邮箱:</td>
+                    <td>
+                        <span class="edit-hide">{$companyInfo.company_email}</span>
+                        <input type="text" name="运行邮箱" class="form-control edit-show" value="{$companyInfo.company_email}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>联系方式:</td>
+                    <td>
+                        <span class="edit-hide">{$companyInfo.company_tel}</span>
+                        <input type="text" name="联系方式" class="form-control edit-show" value="{$companyInfo.company_tel}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>传真:</td>
+                    <td>
+                        <span class="edit-hide">{$companyInfo.company_fax}</span>
+                        <input type="text" name="传真" class="form-control edit-show" value="{$companyInfo.company_fax}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>SITA:</td>
+                    <td>
+                        <span class="edit-hide">{$companyInfo.company_sita}</span>
+                        <input type="text" name="SITA" class="form-control edit-show" value="{$companyInfo.company_sita}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>AIFN:</td>
+                    <td>
+                        <span class="edit-hide">{$companyInfo.company_aifn}</span>
+                        <input type="text" name="AIFN" class="form-control edit-show" value="{$companyInfo.company_aifn}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input style="margin-left:-110px;" class="btn btn-success edit-show" type="submit" value="提交">
+                        <input id="cancel-edit" class="btn btn-warning edit-show" type="button" value="取消修改">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        $(function() {
+            //初始化
+            $(".edit-show").hide();
+
+            //编辑
+            $("#edit").click(function() {
+                $(".edit-show").show();
+                $(".edit-hide").hide();
+            })
+
+            //取消编辑
+            $("#cancel-edit").click(function() {
+                window.location = "__MODULE_AIRLINE__/Company/index";
+            })
+
+            //修改图片
+            $("#change-image").change(function() {
+                console.log(this.files[0]);
+                $("#form-change-company-logo").submit();
+
+            })
+        })
+    </script>
+
+</body>

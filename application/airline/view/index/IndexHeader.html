@@ -1,0 +1,65 @@
+<!-- author 罗佳 -->
+<!-- 网站头部 -->
+<link rel="stylesheet" href="__AIRLINE__/css/index/index.css">
+<script src="__AIRLINE__/js/jquery.leanModal.min.js"></script>
+<link rel="stylesheet" href="__AIRLINE__/css/index/index_login.css">
+<link rel="stylesheet" href="__AIRLINE__/css/index/index_user.css">
+
+<div class="header">
+    <div class="container">
+        <div class="header-left pull-left">
+            <div class="logo">
+                <img class="img-rounded" src="__AIRLINE__/images/logo.png" alt="">
+            </div>
+            <div class="header-nav pull-left ">
+                <ul class="list-inline list-unstyled">
+                    <li class="nav-item list-inline">
+                        <a class="btn text-primary" href="__MODULE_AIRLINE__" class="btn">FASTWAY CLOUD OS</a>
+                    </li>
+                    <li class="nav-item list-inline">
+                        <a class="btn text-primary" href="__MODULE_AIRLINE__" class="btn">首页</a>
+                    </li>
+                    <li class="nav-item list-inline">
+                        <a class="btn text-primary" href="__MODULE_AIRLINE__/Company/index" class="btn">公司信息</a>
+                    </li>
+                    <li class="nav-item list-inline">
+                        <a class="btn text-primary" href="__MODULE_AIRLINE__/Certificate_Information/index" class="btn">证件资料</a>
+                    </li>
+                    <li class="nav-item list-inline">
+                        <a class="btn text-primary" href="__MODULE_AIRLINE__/Airplane_Manager/index" class="btn">飞机管理</a>
+                    </li>
+                    <li class="nav-item list-inline">
+                        <a class="btn text-primary" href="__MODULE_AIRLINE__/Flight_Task/index" class="btn">航班任务</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="header-right pull-right clearfix" id="login">
+            <a href="#loginmodal" class="login btn btn-primary " id="modaltrigger">登录</a>
+            <a href="#register" class="registe btn btn-primary " id="modaltrigger_r">注册</a>
+        </div>
+
+        <div class="header-right pull-right clearfix" style="display:none" id="user_name_div">
+            <ul class="list-inline list-unstyled">
+                <li class="nav-item list-inline">
+                    <label id="user_name" style="color:#337ab7">XX航空公司</label>
+                </li>
+                <li class="nav-item list-inline">
+                    <a class="btn text-primary" href="__MODULE_AIRLINE__/index/logout" class="btn">注销</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(function() {
+        if ("{$Think.session.airline_username}" != "") {
+            document.getElementById("login").style.display = "none";
+            document.getElementById("user_name").innerHTML = "{$Think.session.airline_username}" + ",欢迎您";
+            document.getElementById("user_name_div").style.display = "inline";
+        }
+    })
+</script>

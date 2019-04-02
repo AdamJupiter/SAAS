@@ -1,0 +1,82 @@
+<!-- author 罗佳 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAAS系统--航空公司端</title>
+    <!--引入BS.JS-->{include file="index/UseBsJs"}
+    <link rel="stylesheet" href="__AIRLINE__/css/index/index.css">
+
+</head>
+
+<body>
+
+    <style>
+        .table {
+            width: 60%;
+            margin: 0px auto;
+        }
+        
+        .table>tbody>tr>td,
+        .table>tbody>tr>th {
+            border: 0px solid transparent;
+            height: 60px;
+            line-height: 60px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-big {
+            font-size: 16px;
+        }
+        
+        .company-licenses {
+            height: 60px;
+        }
+    </style>
+
+    <!-- 网站头部 -->
+    {include file="index/IndexHeader"}
+
+    <!-- 用户注册和登录 -->
+    {include file="index/IndexUserAction"}
+
+    <div class="container">
+        <h3 class="text-left" style="display: inline-block;">证件资料</h3>
+        <a href="__MODULE_AIRLINE__/Certificate_Information/index" class="btn btn-primary pull-right" style="margin-top:20px; margin-left:30px;">刷新</a>
+        <a href="__MODULE_AIRLINE__/Certificate_Information/toAddCertificate" class="btn btn-success pull-right" style="margin-top:20px;">新增</a>
+        <hr>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th class="text-center text-big text-info">证件名称</th>
+                    <th class="text-center text-big text-info">缩略图</th>
+                    <th class="text-center text-big text-info">操作</th>
+                </tr>
+
+                {volist name="companyLicenses" id="vo"}
+                <tr>
+                    <td class="text-center">{$vo.license_name}</td>
+                    <td class="text-center"><img class="company-licenses" src="__AIRLINE__/images/companyLicenses/{$vo.license_img}" alt="companyLicenses"></td>
+                    <td class="text-center">
+                        <a target="_blank" href="/static/airline/images/companyLicenses/{$vo.license_img}" class="btn btn-primary">查看详情</a>
+                        <a href="__MODULE_AIRLINE__/Certificate_Information/toUpdateLicense?id={$vo.license_id}" class="btn btn-success">修改</a>
+                        <a href="__MODULE_AIRLINE__/Certificate_Information/deleteLicense?id={$vo.license_id}" class="btn btn-danger">删除</a>
+                    </td>
+                </tr>
+                {/volist}
+
+            </tbody>
+
+        </table>
+
+
+    </div>
+
+
+</body>

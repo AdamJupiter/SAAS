@@ -1,0 +1,106 @@
+<!-- author 罗佳 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAAS系统--航空公司端</title>
+    <!--引入BS.JS-->{include file="index/UseBsJs"}
+
+</head>
+
+<style>
+    body {
+        background-color: #fff;
+    }
+    
+    table>tbody>tr>td,
+    table>tbody>tr>th {
+        height: 60px;
+        font-size: 20px;
+    }
+    
+    .table-bordered>tbody>tr>td,
+    .table-bordered>tbody>tr>th,
+    .table-bordered {
+        border: white 0px solid;
+    }
+    
+    .table-bordered>tbody>tr>td,
+    .table-bordered>tbody>tr>th {
+        width: 50%;
+    }
+    
+    input {
+        margin-top: 12px;
+    }
+</style>
+
+<body>
+    <!-- 网站头部 -->
+    {include file="index/IndexHeader"}
+
+    <!-- 用户注册和登录 -->
+    {include file="index/IndexUserAction"}
+
+    <div class="container">
+        <h3 class="text-left" style="display: inline-block;">飞机详情</h3>
+        <hr>
+
+        <form action="__MODULE_AIRLINE__/Airplane_Manager/updateAirplaneInfo" method="post">
+            <input type="hidden" name="airplane_id" value="{$airplane.airplane_id}">
+            <table class="table table-bordered" style="width:40%;margin:0px auto;">
+                <tbody>
+                    <tr>
+                        <th style="line-height: 60px;">注册号:</th>
+                        <td style="line-height: 60px;">
+                            <input class="form-control input-edit" name="注册号" value="{$airplane.register_num}" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="line-height: 60px;">呼号:</th>
+                        <td style="line-height: 60px;">
+                            <input class="form-control input-edit" name="呼号" value="{$airplane.call_sign}" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="line-height: 60px;">机型:</th>
+                        <td style="line-height: 60px;">
+                            <input class="form-control input-edit" name="机型" value="{$airplane.airplane_type}" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="line-height: 60px;">载客数:</th>
+                        <td style="line-height: 60px;">
+                            <input class="form-control input-edit" name="载客数" value="{$airplane.total_Passenger}" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="line-height: 60px;">MTOW:</th>
+                        <td style="line-height: 60px;">
+                            <input class="form-control input-edit" name="MTOW" value="{$airplane.MTOW}" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input class="btn-success btn" style="margin-left:110px;" type="submit" value="提交">
+                            <input id="cancel" class="btn btn-danger" type="button" value="取消修改">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        $(function() {
+            $("#cancel").click(function() {
+                window.location = "__MODULE_AIRLINE__/Airplane_Manager/index";
+            })
+        })
+    </script>
+</body>
+
+</html>

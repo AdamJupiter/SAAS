@@ -1,0 +1,113 @@
+<!-- author 罗佳 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAAS系统--航空公司端</title>
+    <!--引入BS.JS-->{include file="index/UseBsJs"}
+    <link rel="stylesheet" href="__AIRLINE__/css/index/index.css">
+
+</head>
+
+<body>
+
+    <style>
+        .table {
+            width: 60%;
+            margin: 0px auto;
+        }
+        
+        .table>tbody>tr>td,
+        .table>tbody>tr>th {
+            border: 0px solid transparent;
+            margin: 50px 0px;
+            height: 50px;
+            line-height: 50px;
+        }
+        
+        .text-center {
+            text-align: center;
+            vertical-align: center;
+        }
+        
+        .text-big {
+            font-size: 16px;
+        }
+        
+        .company-licenses {
+            height: 150px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin: 20px 0px;
+        }
+        
+        .table>tbody>.tr-picture>th,
+        .table>tbody>.tr-picture {
+            height: 200px;
+            line-height: 200px;
+        }
+        
+        input[type="file"] {
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+
+    <!-- 网站头部 -->
+    {include file="index/IndexHeader"}
+
+    <!-- 用户注册和登录 -->
+    {include file="index/IndexUserAction"}
+
+    <div class="container">
+        <form action="__MODULE_AIRLINE__/Certificate_Information/addCertificate" enctype="multipart/form-data" method="POST">
+            <h3 class="text-left" style="display: inline-block;">证件资料</h3>
+            <a href="__MODULE_AIRLINE__/Certificate_Information/index" class="btn btn-danger pull-right" style="margin-top:20px; margin-left:30px;">返回</a>
+            <input type="submit" value="提交" class="btn btn-success pull-right" style="margin-top:20px;">
+            <hr>
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <h3 class="text-info text-center">添加证件</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-center text-big">证件名称</th>
+                        <td>
+                            <input required style="margin-top:3px;" name="证件名称" type="text" class="form-control">
+                        </td>
+                    </tr>
+                    <tr class="tr-picture">
+                        <th class="text-center text-big">缩略图</th>
+                        <td>
+                            <img id="company-licenses" class="company-licenses" name="companyLicense" src="__AIRLINE__/images/companyLicenses/默认图.jpg">
+                            <input name="companyLicense" required type="file" id="input-file" accept="image/*">
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <script>
+        $(function() {
+            $("#input-file").change(function() {
+                var file = this.files[0];
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onloadend = function(e) {
+                    $("#company-licenses").attr("src", e.target.result);
+                    console.log(e.target.result); //e.target.result就是最后的路径地址
+                };
+            })
+        })
+    </script>
+
+
+</body>

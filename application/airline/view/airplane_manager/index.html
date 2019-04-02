@@ -1,0 +1,65 @@
+<!-- author 罗佳 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAAS系统--航空公司端</title>
+    <!--引入BS.JS-->{include file="index/UseBsJs"}
+    <script src="__AIRLINE__/js/jquery.leanModal.min.js"></script>
+    <link rel="stylesheet" href="__AIRLINE__/css/index/index.css">
+
+</head>
+
+<style>
+    body {
+        background-color: #fff;
+    }
+</style>
+
+<body>
+    <!-- 网站头部 -->
+    {include file="index/IndexHeader"}
+
+    <!-- 用户注册和登录 -->
+    {include file="index/IndexUserAction"}
+
+    <div class="container">
+        <h3 class="text-left" style="display: inline-block;">飞机管理</h3>
+        <a href="__MODULE_AIRLINE__/Airplane_Manager/index" class="btn btn-primary pull-right" style="margin-top:20px; margin-left:30px;">刷新</a>
+        <a href="__MODULE_AIRLINE__/Airplane_Manager/toAddAirplane" class="btn btn-success pull-right" style="margin-top:20px;">新增</a>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">序号</th>
+                    <th class="text-center">注册号</th>
+                    <th class="text-center">呼号</th>
+                    <th class="text-center">机型</th>
+                    <th class="text-center">载客数</th>
+                    <th class="text-center">MTOW</th>
+                    <th class="text-center" colspan="3">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {volist name="$airplanes" id="vo"}
+                <tr>
+                    <td style="line-height:50px;" class="text-center">{$vo.airplane_id}</td>
+                    <td style="line-height:50px;" class="text-center">{$vo.register_num}</td>
+                    <td style="line-height:50px;" class="text-center">{$vo.call_sign}</td>
+                    <td style="line-height:50px;" class="text-center">{$vo.airplane_type}</td>
+                    <td style="line-height:50px;" class="text-center">{$vo.total_Passenger}</td>
+                    <td style="line-height:50px;" class="text-center">{$vo.MTOW}</td>
+                    <td style="line-height:50px;" class="text-center"><a href="__MODULE_AIRLINE__/Airplane_Manager/AirplaneDeatails?airplane_id={$vo.airplane_id}" class="btn btn-info">详情</a></td>
+                    <td style="line-height:50px;" class="text-center"><a href="__MODULE_AIRLINE__/Airplane_Manager/changeAirplaneInfo?airplane_id={$vo.airplane_id}" class="btn btn-info">修改</a></td>
+                    <td style="line-height:50px;" class="text-center"><a href="__MODULE_AIRLINE__/Airplane_Manager/deleteAirplane?airplane_id={$vo.airplane_id}" class="btn btn-info">删除</a></td>
+                </tr>
+                {/volist}
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
