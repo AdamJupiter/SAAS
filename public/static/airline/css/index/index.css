@@ -1,0 +1,69 @@
+/*author luojia */
+
+.header {
+    height: 50px;
+    line-height: 50px;
+    font-size: 19px;
+    background-color: #444;
+    overflow: hidden;
+}
+
+.header .header-left .logo {
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.header .header-left .logo img {
+    height: 40px;
+    display: block;
+}
+
+.header .header-left .header-nav {
+    margin-left: 5px;
+}
+
+.header .header-left .header-nav a {
+    font-size: 18px;
+}
+
+.header .header-left .header-nav .nav-item:hover a {
+    color: #fff;
+}
+
+.header .header-right a {
+    font-size: 18px;
+}
+
+.header .header-right .login {
+    display: block;
+    float: left;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.header .header-right .registe {
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+
+.banner img {
+    height: 80px;
+}
+
+.banner span {
+    font-size: 30px;
+    vertical-align: -10px;
+}
+
+#myCarousel {
+    width: 90%;
+    margin: 0px auto;
+}
+
+#myCarousel img {
+    width: 100%;
+    height: 600px;
+}
