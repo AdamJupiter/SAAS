@@ -1,1 +1,53 @@
-{"occupation":"F/O","ppn":"432423","doe":"2019-04-10","POB":"432","name":"罗佳","gender":"MALE","country":"中国","dob":"2019-04-10"}
+#添加航段备注
+    public function addLegRemaks(){
+        #从session读取companyId
+        $companyId=Session::get("airline_companyId");
+        #判断用户是否登录
+        $is_login=boolval($companyId);
+        if(!$is_login){
+            $msg=[
+                "statu"=>"error",
+                "detailes"=>"请先登录"
+            ];
+            return json_encode($msg,JSON_UNESCAPED_UNICODE);  
+        }
+
+        #接收前端的ajax信息
+        // $receiveData= $request->param("final_data");
+
+        #模拟接收的数据
+        $receiveData= '{"flight_match_code":"6fcede7bb95e3e2410cd5af224f091a0","leg_id":1,"airport":"dasd","vehicle":"大卡车","driver":"葵司","tel":783867812,"pick_up_time_utc":"2019-04-05 16:53:07","local_time":"2019-04-05 16:53:11","pick_up_point":"建华大街"}';
+
+         #解析前端传送过来的数据
+        $flightLegReamrks=json_decode($receiveData,true);
+
+        #判断数据是否存在
+        $where=[
+            "flight_match_code"=>$flightLegReamrks["flight_match_code"],
+            "leg_id"=>$flightLegReamrks["leg_id"]
+        ];
+        $isExist=!empty(Db::table("flight_leg_crew_Reamrks")->where($where)->select());
+        if($isExist){
+            $msg=[
+                "statu"=>"error",
+                "detailes"=>"数据已存在，请勿重复添加"
+            ];
+            return json_encode($msg,JSON_UNESCAPED_UNICODE);   
+        }
+
+        #提交数据到数据库
+        $count=Db::table("flight_leg_crew_Reamrks")->insert($flightLegReamrks);
+        if($count>0){
+            $msg=[
+                "statu"=>"success",
+                "detailes"=>"提交成功"
+            ];
+             return json_encode($msg,JSON_UNESCAPED_UNICODE);      
+        }else{
+            $msg=[
+                "statu"=>"error",
+                "detailes"=>"数据存入数据库异常"
+            ];
+             return json_encode($msg,JSON_UNESCAPED_UNICODE);
+        }
+    }
