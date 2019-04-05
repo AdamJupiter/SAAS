@@ -12,23 +12,46 @@ class FlightTask extends Controller
 {
     #首页
     public function index(){
-        $flights=Db::table("flight_base")->whereTime('end_date','>',date("Y-m-d",time()))->select();
-        
-
-        dump($flights);
         
         return view();
     }
     
     #添加航班任务界面
-    public function toAddFlightTask(){
+    public function toAddFlightTrip(){
+        $flightType=Db::table("flight_type")->select();
+        $this->assign("flightType",$flightType);
         return view();
+    }
+
+    #添加航班
+    public function addFlightTask(){
+        #数据控制
+        if($_POST["flight_id"]==""){
+            $this->error("航班号不能为空");
+        }
+
+        $data=$_POST;
+
+        #生成航班匹配码
+        $filghtCode=md5($_POST["flight_id"]."|".date("Y-m-d H:i:s",time()));
+        $data["flight_match_code"]=$filghtCode;
+
+        #提交到数据库
+        $count=Db::table("flight_base")->insert($data);
+        if($count>0){
+            $this->success("添加成功");
+        }
+        else{
+            $this->error("添加失败");
+        }
     }
     
 
     public function flightTaskDetails(){
         return view();
     }
+
+
 
     public function ajaxTest(Request $request){
         #接收前端的ajax信息，写入文件测试

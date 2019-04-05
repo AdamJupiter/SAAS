@@ -146,6 +146,7 @@ return [
         "__STATIC__"=>"/static",
         "__INDEX__"=>"/static/index",
         "__AIRLINE__"=>"/static/airline",
+        "__SERVER__"=>"/static/servers",
         "__COMMON__"=>"/static/common",
         "__BOOTSTRAP__"=>"/static/bootstrap",
         "__MODULE_INDEX__"=>"/index.php",

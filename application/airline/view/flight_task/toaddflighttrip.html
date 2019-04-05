@@ -1,0 +1,90 @@
+<!-- author刘安琪 沈组伟 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAAS系统--航空公司端</title>
+    <!--引入BS.JS-->{include file="index/UseBsJs"}
+</head>
+
+<body>
+    <style>
+        .table {
+            width: 50%;
+            margin: 0px auto;
+            font-size: 16px;
+            font-weight: bolder;
+        }
+        
+        .table>tbody>tr>td {
+            border: 0px solid transparent;
+            height: 40px;
+            line-height: 40px;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            $("#select").change(function() {
+                $("#fligt_type").val($("#select").val());
+            })
+        })
+    </script>
+    <!-- 网站头部 -->
+    {include file="index/IndexHeader"}
+    <!-- 用户注册和登录 -->
+    {include file="index/IndexUserAction"}
+
+    <div class="container">
+        <h3 class="text-left" style="display: inline-block;">添加航班</h3>
+        <hr>
+
+        <form action="__MODULE_AIRLINE__/Flight_Task/addFlightTask" method="POST">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>航班号:</td>
+                        <td>
+                            <input required name="flight_id" type="text" class="form-control" placeholder="请输入航班号" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>开始时间:</td>
+                        <td>
+                            <input required name="begin_time" type="datetime-local" class="form-control" placeholder="请输入开始时间" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>结束时间:</td>
+                        <td>
+                            <input required name="end_time" type="datetime-local" class="form-control" placeholder="请输入结束时间" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>飞行类型:</td>
+                        <td>
+                            <select id="select">
+                                    {volist name="flightType" id="vo"}
+                                        <option value="{$vo.flight_type}">{$vo.flight_type}</option>
+                                    {/volist}
+                            </select>
+                            <input id="flight_type" type="hidden" name="flight_type" value="Ferry">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <center>
+                                <button id="submit" class=" btn btn-primary">提交</button>
+                                <a href="__MODULE_AIRLINE__/Flight_Task/toAddFlightTask" type="button" class=" btn btn-success">返回</a>
+                            </center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+    </div>
+</body>

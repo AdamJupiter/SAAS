@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--引入BS.JS-->{include file="index/UseBsJs"}
+    <link rel="stylesheet" href="/static/servers/css/index-aside.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        
+        .header {
+            margin: 5px 0px;
+            height: 55px;
+        }
+        
+        .header .nav-left {
+            width: 40%;
+            float: left;
+            height: 55px;
+        }
+        
+        .header .nav-right {
+            width: 40%;
+            float: right;
+            height: 55px;
+            /* background-color: #f40; */
+        }
+        
+        .header .nav-left .logo {
+            margin-left: 10px;
+            width: 150px;
+        }
+        
+        .nav-right .img-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            float: left;
+            margin: 7.5px 20px;
+        }
+        
+        .nav-right .nav-right-ul {
+            float: left;
+            overflow: hidden;
+        }
+        
+        .nav-right .nav-right-ul>li {
+            line-height: 55px;
+            padding: 0px 40px;
+            float: left;
+        }
+        
+        .aside {
+            width: 20%;
+            float: left;
+            height: 500px;
+        }
+        
+        .main-action {
+            width: 80%;
+            float: left;
+            height: 700px;
+            background-color: rgb(92, 221, 103);
+        }
+    </style>
+
+    <!-- 顶部导航 -->
+    <div class="header">
+        <!-- 左导航 -->
+        <div class="nav-left">
+            <img class="logo" src="/static/airline/images/logo.png" alt="logo">
+        </div>
+
+        <!-- 右导航 -->
+        <div class="nav-right">
+            <img class="img-avatar" src="/static/servers/images/avatar/test1.jpeg" alt="头像">
+
+            <ul class="nav-right-ul">
+                <li>Davil macmax</li>
+                <li><span class="glyphicon glyphicon-envelope"></span></li>
+                <li></li>
+                <li><span class="glyphicon glyphicon-off"></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 侧边栏导航 -->
+    <div class="aside">
+        {include file="index/aside"}
+    </div>
+
+    <!-- 主功能区 -->
+    <div class="main-action">
+
+    </div>
+
+
+
+</body>
+
+</html>
